@@ -21,3 +21,11 @@ This project shows how to interact with a large language model through code inst
 
 3. Run the program:
    python app.py
+
+## Sample Output
+--- Prompt 1 ---
+INPUT:
+Explain what a large language model is in 2 simple sentences.
+
+OUTPUT:
+A large language model is a type of AI trained on large amounts of text to understand and generate human language...
