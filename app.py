@@ -1,6 +1,6 @@
-from google import genai
+from groq import Groq
 
-client = genai.Client()
+client = Groq()
 
 prompts = [
     "Explain what a large language model is in 2 simple sentences.",
@@ -9,13 +9,15 @@ prompts = [
 ]
 
 for i, prompt in enumerate(prompts, start=1):
-    response = client.models.generate_content(
-        model="gemini-3-flash-preview",
-        contents=prompt
+    response = client.chat.completions.create(
+        model="llama3-8b-8192",
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
     )
 
     print(f"\n--- Prompt {i} ---")
     print("INPUT:")
     print(prompt)
     print("\nOUTPUT:")
-    print(response.text)
+    print(response.choices[0].message.content)
